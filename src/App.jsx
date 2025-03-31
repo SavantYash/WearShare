@@ -12,6 +12,7 @@ import axios from "axios"
 import { NGOSidebar } from "./Components/NGO/NGOSidebar"
 import { DonationList } from "./Components/NGO/DonationList"
 import { RequestedDonation } from "./Components/User/RequestedDonation"
+import { PastRequests } from "./Components/NGO/PastRequests"
 // import { PastRequest } from "./Components/NGO/PastRequests"
 
 function App() {
@@ -45,14 +46,14 @@ function App() {
         {/* <Route path="" element={<PrivateRoutes />}> */}
 
         <Route path='/user' element={<UserSidebar />}>
-          <Route path='addclothes' element={<AddClothes />} />
+          <Route index element={<AddClothes />} />
           <Route path='pastdonation' element={<PastDonation />} />
           <Route path='requests' element={<RequestedDonation />} />
         </Route>
         
         <Route path='/ngo' element={<NGOSidebar />}>
-          <Route path='donationlist' element={<DonationList />} />
-          {/* <Route path='pastrequests' element={<PastRequest />} /> */}
+          <Route index element={<DonationList />} />
+          <Route path='pastrequests' element={<PastRequests />} />
         </Route>
         {/* </Route> */}
       </Routes>

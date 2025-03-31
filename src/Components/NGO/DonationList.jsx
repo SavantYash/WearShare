@@ -8,16 +8,13 @@ export const DonationList = () => {
 
     const getDataByUserId = async () => {
         const res = await axios.get("/donation/get/")
-        console.log(res)
         setdonations(res.data.data)
     }
 
     const ApplyById = async (donation) => {
-        console.log(donation)
         donation.donationId = donation._id;
         donation.ngoId = localStorage.getItem("id")
         const res = await axios.post("/request/add",donation);
-        console.log(res)
     }
 
     useEffect(() => {
