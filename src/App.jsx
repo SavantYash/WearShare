@@ -13,6 +13,10 @@ import { NGOSidebar } from "./Components/NGO/NGOSidebar"
 import { DonationList } from "./Components/NGO/DonationList"
 import { RequestedDonation } from "./Components/User/RequestedDonation"
 import { PastRequests } from "./Components/NGO/PastRequests"
+import { Volunteer } from "./Common/volunteer"
+import { Sidebar } from "./Components/Volunteer/Sidebar"
+import { Requests } from "./Components/Volunteer/requests"
+import { AcceptedReq } from "./Components/Volunteer/AcceptedReq"
 // import { PastRequest } from "./Components/NGO/PastRequests"
 
 function App() {
@@ -42,6 +46,7 @@ function App() {
         <Route path="/" element={<Welcome />}></Route>
         <Route path="/signup" element={<SignUp />}></Route>
         <Route path="/signin" element={<SignIn />}></Route>
+        <Route path="/signupv" element={<Volunteer />}></Route>
 
         {/* <Route path="" element={<PrivateRoutes />}> */}
 
@@ -54,6 +59,11 @@ function App() {
         <Route path='/ngo' element={<NGOSidebar />}>
           <Route index element={<DonationList />} />
           <Route path='pastrequests' element={<PastRequests />} />
+        </Route>
+
+        <Route path='/v' element={<Sidebar />}>
+          <Route index element={<Requests/>} />
+          <Route path="acceptedrequest" element={<AcceptedReq/>} />
         </Route>
         {/* </Route> */}
       </Routes>

@@ -10,7 +10,6 @@ import mail from "../assets/Images/Mail-vector-image.png"
 import ngo from "../assets/Images/NGO-LOGO.jpg"
 import users from "../assets/Images/USER-LOGO.jpg"
 import { Link } from 'react-router-dom'
-import { Navbar } from './Navbar'
 
 export const Welcome = () => {
     return (

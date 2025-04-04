@@ -35,8 +35,10 @@ const SignIn = () => {
 
       if (res.data.data.role.name === 'donor') {
         navigate('/user')
-      } else {
+      } else if(res.data.data.role.name === 'ngo' ) {
         navigate('/ngo')
+      }else{
+        navigate('/v')
       }
 
     }

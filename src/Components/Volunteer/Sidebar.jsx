@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { UserNavbar } from './UserNavbar'
 import { Link, Outlet } from 'react-router-dom'
 import { Bounce, toast, ToastContainer } from 'react-toastify'
+import { Navbar } from './Navbar'
 
-export const UserSidebar = () => {
+export const Sidebar = () => {
 
   //for closing sidebar...
   const [isSidebarOpen, setSidebarOpen] = useState(true);
@@ -18,7 +18,7 @@ export const UserSidebar = () => {
 
   return (
     <>
-      <UserNavbar toggleSidebar={toggleSidebar} />
+      <Navbar toggleSidebar={toggleSidebar} />
       <ToastContainer
         position="top-right"
         autoClose={5000}
@@ -33,10 +33,10 @@ export const UserSidebar = () => {
         transition={Bounce}
       />
       <aside className={`app-sidebar bg-dark shadow ${isSidebarOpen ? "open" : "d-none"}`} data-bs-theme="dark">
-        <div className="sidebar-brand">
-          <a href="./index.html" className="brand-link">
-            <span className="brand-text fw-light">User</span>
-          </a>
+        <div className="sidebar-brand text-white">
+          
+            WearShare
+          
         </div>
 
         <div className="" data-overlayscrollbars-viewport="scrollbarHidden overflowXHidden overflowYScroll" tabIndex={-1}
@@ -60,31 +60,17 @@ export const UserSidebar = () => {
               data-accordion="false"
             >
               <li className="nav-item menu-open">
-                <Link to="/user" className="nav-link active">
+                <Link to="/v" className="nav-link active">
                   <i className="nav-icon bi bi-speedometer" />
                   <p>
-                    Add clothes
+                    requests
                     <i className="nav-arrow bi bi-chevron-right" />
                   </p>
                 </Link>
-                <Link to="pastdonation" className="nav-link active">
+                <Link to="acceptedrequest" className="nav-link active">
                   <i className="nav-icon bi bi-speedometer" />
                   <p>
-                    Past Donation
-                    <i className="nav-arrow bi bi-chevron-right" />
-                  </p>
-                </Link>
-                <Link to="requests" className="nav-link active">
-                  <i className="nav-icon bi bi-speedometer" />
-                  <p>
-                    Requests
-                    <i className="nav-arrow bi bi-chevron-right" />
-                  </p>
-                </Link>
-                <Link to="/" className="nav-link active">
-                  <i className="nav-icon bi bi-speedometer" />
-                  <p onClick={() => { LogOutFun() }} style={{ color: 'red', fontWeight: 'bold' }}>
-                    Logout
+                    accepted
                     <i className="nav-arrow bi bi-chevron-right" />
                   </p>
                 </Link>
