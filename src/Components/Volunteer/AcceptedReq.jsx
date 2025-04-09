@@ -21,10 +21,11 @@ export const AcceptedReq = () => {
     {
         data.map((d) => {
             return <div className="card" style={{width: "18rem",margin:'10px'}}>
-                <img src={d?.donationRequestId?.imageURL} className="card-img-top" alt="..." />
+                <img src={d?.historyId?.imageURL} className="card-img-top" alt="..." />
                 <div className="card-body">
                     
-                    <p className="card-text">{d?.donationRequestId?.address}</p>
+                    <p className="card-text">From : {d?.historyId?.address}</p>
+                    <p className="card-text">To : {d?.historyId?.ngoId.address}</p>
                     <button onClick={()=>{onAccept(d)}} className="btn btn-primary">Accept</button>
                 </div>
             </div>

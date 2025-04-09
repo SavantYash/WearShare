@@ -15,25 +15,28 @@ export const Requests = () => {
         getData()
     }, [])
 
-    const onAccept = async(d) => {
-        await axios.put('/transport/update/'+localStorage.getItem('id')+"/"+d._id)         
+    const onAccept = async(id) => {
+        console.log(id)
+        await axios.get('/transport/update/'+localStorage.getItem('id')+"/"+id)         
           
     }
 
     return (
+        <>
         <div style={{width: '80vw', margin: '100px auto', display: 'flex', justifyContent: 'center' }}>
             {
                 data.map((d) => {
-                    return <div class="card" style={{width: "18rem",margin:'10px'}}>
-                        <img src={d?.donationRequestId?.imageURL} class="card-img-top" alt="..." />
-                        <div class="card-body">
-                            
-                            <p class="card-text">{d?.donationRequestId?.address}</p>
-                            <button onClick={()=>{onAccept(d)}} class="btn btn-primary">Accept</button>
+                    return <div className="card" style={{width: "18rem",margin:'10px'}}>
+                        <img src={d?.historyId?.imageURL} className="card-img-top" alt="..." />
+                        <div className="card-body">
+                            <p className="card-text"> From : {d?.historyId?.address}</p>
+                            <p className="card-text"> To : {d?.historyId?.ngoId.address}</p>
+                            <button onClick={()=>{onAccept(d._id)}} className="btn btn-primary">Accept</button>
                         </div>
                     </div>
                 })
             }
         </div>
+        </>
     )
 }

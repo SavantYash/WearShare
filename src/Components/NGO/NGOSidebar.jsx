@@ -65,7 +65,7 @@ export const NGOSidebar = () => {
               data-accordion="false"
             >
               <li className="nav-item menu-open">
-                <Link to="donationlist" className="nav-link active">
+                <Link to="/ngo" className="nav-link active">
                   <i className="nav-icon bi bi-speedometer" />
                   <p>
                     Donations

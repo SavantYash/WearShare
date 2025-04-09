@@ -1,20 +1,21 @@
-import React, { useEffect, useState } from 'react'
-import { Link, Outlet } from 'react-router-dom'
-import { Bounce, toast, ToastContainer } from 'react-toastify'
-import { Navbar } from './Navbar'
+import React, { useEffect, useState } from 'react';
+import { Link, Outlet, useLocation } from 'react-router-dom';
+import { Bounce, toast, ToastContainer } from 'react-toastify';
+import { Navbar } from './Navbar';
 
 export const Sidebar = () => {
-
-  //for closing sidebar...
   const [isSidebarOpen, setSidebarOpen] = useState(true);
+  const location = useLocation();
 
   const toggleSidebar = () => {
     setSidebarOpen(!isSidebarOpen);
   };
 
   const LogOutFun = () => {
-    localStorage.clear()
-  }
+    localStorage.clear();
+  };
+
+  const isActive = (path) => location.pathname === path;
 
   return (
     <>
@@ -34,12 +35,9 @@ export const Sidebar = () => {
       />
       <aside className={`app-sidebar bg-dark shadow ${isSidebarOpen ? "open" : "d-none"}`} data-bs-theme="dark">
         <div className="sidebar-brand text-white">
-          
-            WearShare
-          
+          WearShare
         </div>
-
-        <div className="" data-overlayscrollbars-viewport="scrollbarHidden overflowXHidden overflowYScroll" tabIndex={-1}
+        <div className="scrollbarHidden overflowXHidden overflowYScroll" tabIndex={-1}
           style={{
             marginRight: "-16px",
             marginBottom: "-16px",
@@ -52,25 +50,25 @@ export const Sidebar = () => {
           }}
         >
           <nav className="mt-2">
-            {/*begin::Sidebar Menu*/}
-            <ul
-              className="nav sidebar-menu flex-column"
-              data-lte-toggle="treeview"
-              role="menu"
-              data-accordion="false"
-            >
+            <ul className="nav sidebar-menu flex-column" data-lte-toggle="treeview" role="menu" data-accordion="false">
               <li className="nav-item menu-open">
-                <Link to="/v" className="nav-link active">
+                <Link
+                  to="/v"
+                  className={`nav-link ${isActive("/v") ? "active bg-primary text-white" : "text-light"}`}
+                >
                   <i className="nav-icon bi bi-speedometer" />
                   <p>
-                    requests
+                    Requests
                     <i className="nav-arrow bi bi-chevron-right" />
                   </p>
                 </Link>
-                <Link to="acceptedrequest" className="nav-link active">
+                <Link
+                  to="acceptedrequest"
+                  className={`nav-link ${isActive("/acceptedrequest") ? "active bg-primary text-white" : "text-light"}`}
+                >
                   <i className="nav-icon bi bi-speedometer" />
                   <p>
-                    accepted
+                    Accepted
                     <i className="nav-arrow bi bi-chevron-right" />
                   </p>
                 </Link>
@@ -79,9 +77,9 @@ export const Sidebar = () => {
           </nav>
         </div>
       </aside>
-      <main className='app-main'>
-        <Outlet></Outlet>
+      <main className="app-main">
+        <Outlet />
       </main>
     </>
-  )
-}
+  );
+};

@@ -11,9 +11,8 @@ export const RequestedDonation = () => {
         setrequests(res.data.data)
     }
 
-    const onAcceptreq = async (request) => {
-        request.status = "accept"
-        const res = await axios.post("/request/update",request)
+    const onAcceptreq = async (id) => {
+        const res = await axios.get("/request/update/"+id)
         console.log(res)
     }
 
@@ -31,7 +30,7 @@ export const RequestedDonation = () => {
                             <img src={request.imageURL} className="card-img-top" alt="..." style={{borderRadius:'6px',marginTop:'15px'}}/><br/>
                             <p>NGO name :{request.ngoId.name}</p>
                             <p>NGO number :{request.ngoId.number}</p>
-                            <button type="button" className="btn btn-success" style={{margin:'10px'}} onClick={()=>{onAcceptreq(request)}}>Success</button>
+                            <button type="button" className="btn btn-success" style={{margin:'10px'}} onClick={()=>{onAcceptreq(request._id)}}>Success</button>
                             <button type="button" className="btn btn-danger" style={{margin:'10px'}}>Decline</button>
                         </div>
                     })
