@@ -2,7 +2,6 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 
 export const AcceptedReq = () => {
-
     const [data, setdata] = useState([])
 
     const getData = async()=>{
@@ -15,7 +14,6 @@ export const AcceptedReq = () => {
       getData()
     }, [])
     
-
   return (
     <div style={{width: '80vw', margin: '100px auto', display: 'flex', justifyContent: 'center' }}>
     {
