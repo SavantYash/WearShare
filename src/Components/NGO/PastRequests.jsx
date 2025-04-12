@@ -16,6 +16,24 @@ export const PastRequests = () => {
     console.log(res.data.data)
   }
 
+  const DeleteById = async(id) => {
+          console.log(id)
+          // const res = await axios.delete("/donation/deletedonation/"+id)
+          
+          res == 200 && toast.success('Post deleted!', {
+              position: "top-right",
+              autoClose: 3000,
+              hideProgressBar: false,
+              closeOnClick: false,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "dark",
+              transition: Bounce,
+          });
+          getRequest()
+      }
+
   return (
     <div className="container text-center" style={{ marginTop: '80px' }}>
       <div className='row'>

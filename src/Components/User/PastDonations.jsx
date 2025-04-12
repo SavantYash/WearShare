@@ -55,7 +55,7 @@ export const PastDonation = () => {
                 {
                     donations?.map((donation) => {
                         return <div className="card" style={{width: "18rem",margin:'10px'}}>
-                        <img src={donation.imageURL} className="card-img-top" alt="..." style={{borderRadius:'6px',marginTop:'15px'}}/>
+                        <div className='overflow-hidden d-flex justify-content-center align-items-center' style={{height:'23rem'}}><img src={donation.imageURL} className="card-img-top" alt="..." style={{borderRadius:'6px',marginTop:'15px'}}/></div>
                         <div className="card-body">
                           <h5 className="card-title">{donation.category}</h5><br/>
                           <p className="card-text">{donation.condition} -- {donation.description} -- {donation.quantity}</p>

@@ -17,6 +17,8 @@ import { Volunteer } from "./Common/volunteer"
 import { Sidebar } from "./Components/Volunteer/Sidebar"
 import { Requests } from "./Components/Volunteer/requests"
 import { AcceptedReq } from "./Components/Volunteer/AcceptedReq"
+import ProfileView from "./Common/Profile"
+
 
 // import { PastRequest } from "./Components/NGO/PastRequests"
 
@@ -48,6 +50,7 @@ function App() {
         <Route path="/signup" element={<SignUp />}></Route>
         <Route path="/signin" element={<SignIn />}></Route>
         <Route path="/signupv" element={<Volunteer />}></Route>
+        <Route path="/profile" element={<ProfileView />}></Route>
 
         {/* <Route path="" element={<PrivateRoutes />}> */}
 
